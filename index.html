@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AnythingLab</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            color: white;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            overflow: auto; /* Allow scrolling */
+        }
+        .header {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .title {
+            font-size: 2.5em;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+        .title span {
+            margin: 0 10px;
+        }
+        .content {
+            text-align: center;
+            z-index: 2;
+            padding: 20px;
+            max-width: 800px;
+        }
+        .description {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column; /* Default to column for mobile */
+            align-items: center;
+            margin-top: 20px;
+            padding-bottom: 100px; /* Add padding for scrolling */
+        }
+        button {
+            margin: 10px;
+            padding: 15px 25px;
+            font-size: 1em;
+            cursor: pointer;
+            background-color: rgba(85, 85, 85, 0.8);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            transition: background-color 0.3s;
+            backdrop-filter: blur(5px);
+            width: 100%;
+            max-width: 300px;
+        }
+        button:hover {
+            background-color: rgba(119, 119, 119, 0.9);
+        }
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.15); /* Set darkness to 15% */
+            backdrop-filter: blur(25px); /* Stronger blur effect */
+            z-index: 1;
+        }
+
+        /* Media query for desktop */
+        @media (min-width: 768px) {
+            .button-container {
+                flex-direction: row; /* Buttons side by side */
+                justify-content: center; /* Center the buttons */
+            }
+            button {
+                margin: 0 10px; /* Space between buttons */
+                width: auto; /* Auto width for side by side layout */
+            }
+            .header {
+                text-align: center; /* Center title */
+            }
+        }
+
+        /* Animations for balls */
+        .ball {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(8px);
+            animation: moveBall linear infinite; /* Restore animation */
+        }
+
+        @keyframes moveBall {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(100vh); /* Move down */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background"></div>
+    <div class="content">
+        <div class="header">
+            <h1 class="title"><span>Anything</span><span>Lab</span></h1>
+        </div>
+        <div class="description">
+            AnythingLab collaborates with a wide range of devices, offering ports and builds of custom ROMs. Our commitment to Android development provides valuable resources, all completely free.
+        </div>
+        <div class="button-container">
+            <button onclick="window.open('https://raw.githubusercontent.com/ProjectAnythingOfficial/Maintainers/refs/heads/main/Developers', '_blank')">Developers</button>
+            <button onclick="window.open('https://t.me/anythingdevelopersgp', '_blank')">Group</button>
+            <button onclick="window.open('https://t.me/RedmiNote124GUpdater', '_blank')">Channel</button>
+            <button onclick="window.open('https://raw.githubusercontent.com/ProjectAnythingOfficial/TeamAnything/refs/heads/main/Devices', '_blank')">Devices</button>
+        </div>
+    </div>
+
+    <!-- Colorful balls -->
+    <script>
+        const colors = ['red', 'blue', 'green', 'yellow', 'purple', 'orange'];
+        for (let i = 0; i < 10; i++) {
+            createBall();
+        }
+
+        function createBall() {
+            const ball = document.createElement('div');
+            ball.className = 'ball';
+            ball.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            ball.style.width = Math.random() * 50 + 20 + 'px'; // Random size
+            ball.style.height = ball.style.width; // Make it a circle
+            ball.style.left = Math.random() * window.innerWidth + 'px';
+            ball.style.top = Math.random() * window.innerHeight + 'px';
+            ball.style.animationDuration = Math.random() * 2 + 3 + 's'; // Random speed
+            ball.style.animationDelay = Math.random() * 5 + 's'; // Random delay
+            document.body.appendChild(ball);
+        }
+    </script>
+</body>
+</html>
