@@ -1,0 +1,113 @@
+* {
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* don't allow overlapping */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    color: white;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    /* overflow: auto; Allow scrolling */
+}
+.header {
+    margin-bottom: 20px;
+    text-align: center;
+}
+.title {
+    font-size: 2.5em;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+.title span {
+    margin: 0 10px;
+}
+.content {
+    text-align: center;
+    z-index: 2;
+    padding: 20px;
+    max-width: 800px;
+}
+.description {
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+.button-container {
+    display: flex;
+    flex-direction: column; /* Default to column for mobile */
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    padding-bottom: 100px; /* Add padding for scrolling */
+}
+button {
+    margin: 10px;
+    padding: 15px 25px;
+    font-size: 1em;
+    cursor: pointer;
+    background-color: rgba(85, 85, 85, 0.8);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    /* transition: background-color 0.3s; */
+    backdrop-filter: blur(5px);
+    width: 100%;
+    max-width: 300px;
+    transition: box-shadow 0.3s ease;
+    box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.6);
+}
+button:hover {
+    box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.8),
+    inset 0 0 5px rgba(255, 255, 255, 1);
+}
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.15); /* Set darkness to 15% */
+    backdrop-filter: blur(25px); /* Stronger blur effect */
+    z-index: 1;
+}
+
+/* Media query for desktop */
+@media (min-width: 768px) {
+    .button-container {
+        flex-direction: row; /* Buttons side by side */
+        justify-content: center; /* Center the buttons */
+    }
+    button {
+        margin: 0 10px; /* Space between buttons */
+        width: auto; /* Auto width for side by side layout */
+    }
+    .header {
+        text-align: center; /* Center title */
+    }
+}
+
+/* Animations for balls */
+.ball {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(8px);
+    animation: moveBall linear infinite; /* Restore animation */
+}
+
+@keyframes moveBall {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(100vh); /* Move down */
+    }
+}
