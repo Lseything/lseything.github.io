@@ -4,116 +4,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alex Lseything - Biography</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #000; /* Fundo totalmente preto */
-            color: #f5f5f5;
-            line-height: 1.6;
-            padding: 20px;
-        }
-
-        header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        header img {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            margin-bottom: 15px;
-        }
-
-        header h1 {
-            font-size: 2em;
-            margin-bottom: 10px;
-            color: #fff;
-        }
-
-        nav {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: #fff;
-            background: rgba(31, 31, 31, 0.8);
-            backdrop-filter: blur(10px);
-            padding: 10px 15px;
-            border-radius: 8px;
-            font-size: 0.9em;
-            transition: transform 0.3s, background-color 0.3s;
-        }
-
-        nav a:hover {
-            background-color: rgba(50, 50, 50, 0.8);
-            transform: scale(1.1);
-        }
-
-        main {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        main h2 {
-            font-size: 1.8em;
-            margin-bottom: 15px;
-            color: #fff; /* "About Alex" em branco */
-        }
-
-        main p {
-            margin-bottom: 15px;
-            font-size: 1em;
-        }
-
-        footer {
-            margin-top: 30px;
-            text-align: center;
-            font-size: 1em;
-            color: #888;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
 
+    <div class="background-blur"></div>
+    <div class="stars"></div>
+    <div class="twinkling"></div>
+
     <header>
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3TTnVPq5CZ_I53Xp9iBWYRgmmb4lXqUlTkw&usqp=CAU" alt="Alex Lseything">
+        <img src="https://avatars.githubusercontent.com/u/176653580?s=400&u=91cdf68f7ddd46e1026e8b78e8dc345c73b9fc3b&v=4" alt="Alex Lseything">
         <h1>Alex Lseything</h1>
         <nav>
-            <a href="https://github.com/Lseything" target="_blank">GitHub</a>
-            <a href="https://gitlab.com/Lseything" target="_blank">GitLab</a>
-            <a href="https://t.me/Lseything" target="_blank">Telegram</a>
+            <a href="https://github.com/Lseything" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://gitlab.com/Lseything" target="_blank"><i class="fab fa-gitlab"></i></a>
+            <a href="https://t.me/Lseything" target="_blank"><i class="fab fa-telegram"></i></a>
+            <a href="mailto:lseything@gmail.com"><i class="fas fa-envelope"></i></a>
         </nav>
+        <div class="mode-toggle">
+            <button id="dark-mode-toggle">Dark Mode</button>
+            <button id="blur-toggle">Toggle Blur</button>
+        </div>
     </header>
 
     <main>
-        <h2></h2>
+        <h2>About Alex</h2>
         <p>
-            Alex Lseything is an Android developer with expertise in creating custom kernels 
-            and optimizing performance. Focused on open-source contributions, Alex blends 
-            technical precision with creative problem-solving to craft unique solutions.
+            Alex Lseything is a dedicated Android developer with a profound expertise in crafting custom kernels and optimizing device performance. His journey in the world of open-source software is marked by a unique blend of technical acumen and creative problem-solving, enabling him to deliver innovative solutions that stand out.
         </p>
         <p>
-            Whether building custom ROMs or working on kernel development, Alex’s passion 
-            for technology drives every project. His dedication to innovation inspires 
-            collaboration within the developer community.
+            Whether it's developing custom ROMs or delving into kernel development, Alex's unwavering passion for technology fuels every project he undertakes. His commitment to pushing the boundaries of innovation not only drives his personal endeavors but also inspires collaborative efforts within the broader developer community.
+        </p>
+        <p>
+            With a keen eye for detail and a relentless pursuit of excellence, Alex continues to make significant contributions to the Android ecosystem, leaving a lasting impact on both users and fellow developers alike.
         </p>
     </main>
 
     <footer>
         <p>"The merges have never been so real, hello you."</p>
     </footer>
+
+    <script>
+        document.getElementById('dark-mode-toggle').addEventListener('click', function() {
+            document.body.classList.toggle('dark-mode');
+            this.textContent = document.body.classList.contains('dark-mode') ? 'Light Mode' : 'Dark Mode';
+        });
+
+        document.getElementById('blur-toggle').addEventListener('click', function() {
+            document.body.classList.toggle('blur-mode');
+            this.textContent = document.body.classList.contains('blur-mode') ? 'No Blur' : 'Toggle Blur';
+        });
+    </script>
 
 </body>
 </html>
